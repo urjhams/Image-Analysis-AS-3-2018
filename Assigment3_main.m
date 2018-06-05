@@ -16,7 +16,7 @@ function Assignment3_main()
   %Tried to use imbinarize but could not test that function in octave
   %binary = im2bw (mag, "mean");
   %binary = im2bw (mag, "concavity");
-  binary = im2bw (mag, 0.07);
+  bw = im2bw (mag, 0.07);
 
   %------------------ d Hough transform implement
   [H,thetas,P] = hough_Detection(bw,mag);

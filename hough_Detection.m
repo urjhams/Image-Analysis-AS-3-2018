@@ -1,12 +1,12 @@
 function [Hough,thetaRange,pRange] = hough_Detection(bw,gradient)
   [rows, cols] = size(bw);
   thetaMax = 90;
-  pMax = ceil(sqrt((w - 1).^2 + (h - 1).^2));   % ceil in octave = floor in matlab
+  pMax = ceil(sqrt((cols - 1).^2 + (rows - 1).^2));   % ceil in octave = floor in matlab
   thetaRange = -90:(thetaMax - 1);
   pRange = -pMax:pMax;
-  
+
   Hough = zeros(pMax * 2 + 1,180);
-  
+
   for row = 1:rows
     for col = 1:cols
       if bw(row,col) > 0
