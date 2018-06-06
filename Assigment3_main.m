@@ -36,7 +36,21 @@ function Assignment3_main()
   lines = houghlines(bw, thetas, P, peaks,'FillGap', 20, 'MinLength', 20);
 
   %------------------ i Final overlay
-
+  figure, imshow(grayScale),title('Hough Line'); hold on
+  max_len = 0;
+  for k = 1:length(lines)
+    xy = [lines(k).point1; lines(k).point2];
+    plot(xy(:,1),xy(:,2),'LineWidth',2,'Color','green');
+    % Plot beginnings and ends of lines
+    plot(xy(1,1),xy(1,2),'x','LineWidth',2,'Color','yellow');
+    plot(xy(2,1),xy(2,2),'x','LineWidth',2,'Color','red');
+    len = norm(lines(k).point1 - lines(k).point2);
+    if ( len > max_len)
+      max_len = len;
+      xy_long = xy;
+    end
+  end
+  plot(xy_long(:,1),xy_long(:,2),'LineWidth',2,'Color','cyan');
 
   figure;
   subplot(2,2,1), imshow(originalImage); title('Original');
