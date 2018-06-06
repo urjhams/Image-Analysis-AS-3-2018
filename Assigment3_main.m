@@ -1,4 +1,4 @@
-function Assignment3_main()
+function Assigment3_main()
   pkg load image;
 
   sigma = 1;
@@ -57,6 +57,6 @@ function Assignment3_main()
   subplot(2,2,1), imshow(originalImage); title('Original');
   subplot(2,2,2), imshow(grayScale,[]); title('a) gray scale');
   subplot(2,2,3), imshow(mag,[]); title('b) Gradient magnitude');
-  subplot(2,2,4), imshow(binary); title('c) Binary mask');
+  subplot(2,2,4), imshow(bw); title('c) Binary mask');
 
 End
