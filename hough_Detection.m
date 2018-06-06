@@ -32,10 +32,10 @@ function [H,theta_range,P_range] = hough_Detection(bw,gradient)
 
   for x = 1:w
     for y = 1:h
-      for theta = theta_range
-        p = x * cosd(theta) + y * sind(theta);
+      for thetaIndex = 1:length(theta_range)
+        p = x * cosd(theta_range(thetaIndex)) + y * sind(theta_range(thetaIndex));
         pIndex = round(p + pMax) + 1;
-        H(pIndex,theta) = H(pIndex,theta) + 1;
+        H(pIndex,thetaIndex) = H(pIndex,thetaIndex) + 1;
       end
     end
   end
