@@ -19,7 +19,7 @@ function Assignment3_main()
   bw = im2bw (mag, 0.07);
 
   %------------------ d Hough transform implement
-  [H,thetas,P] = hough_Detection(bw,mag);
+  [H,thetas,P] = hough_Detection(bw);
 
   %------------------ e Voting array ploting
   figure; plot(1, 1, 1), imagesc(thetas, P, H), colormap('gray'); title('Hough voting result');
