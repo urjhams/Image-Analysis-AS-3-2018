@@ -30,7 +30,7 @@ function Assignment3_main()
   %------------------ g Found extrema
   figure; subplot(3, 2, 4), imagesc(thetas, P, H), colormap('gray'); title('Hough peaks');
   axis on, axis normal, hold on;
-  plot(thetas(P(:, 2)), P(peaks(:, 1)), 's', 'color', 'blue');
+  plot(thetas(peaks(:, 2)), P(peaks(:, 1)), 's', 'color', 'blue');
 
   %------------------ h Hough lines
   lines = houghlines(bw, thetas, P, peaks,'FillGap', 20, 'MinLength', 20);

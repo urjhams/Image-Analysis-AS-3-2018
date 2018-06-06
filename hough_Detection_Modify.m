@@ -1,4 +1,4 @@
-function [H,theta_range,p_range] = hough_Detection(bw)
+function [H,theta_range,p_range] = hough_Detection_Modify(bw,gradient)
   [w, h] = size(bw);
   pMax = ceil(sqrt(w.^2 + h.^2));
   theta_range = -90:89;
@@ -9,7 +9,7 @@ function [H,theta_range,p_range] = hough_Detection(bw)
     for y = 1:h
       if bw(x,y) ~= 0
         for thetaIndex = 1:length(theta_range)
-          p = round(x * cos(theta_range(thetaIndex) + pi/180) + y * sin(theta_range(thetaIndex) + pi/180));
+          p = x * cos(theta_range(thetaIndex) + pi/180) + y * sin(theta_range(thetaIndex) + pi/180);
           pIndex = round(p + pMax) + 1;
           H(pIndex,thetaIndex) = H(pIndex,thetaIndex) + 1;
         end
